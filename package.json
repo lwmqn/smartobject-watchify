@@ -1,0 +1,24 @@
+{
+  "name": "smartobject-watchify",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllSmartObjects/smartobject-watchify.git"
+  },
+  "author": "Simen Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AllSmartObjects/smartobject-watchify/issues"
+  },
+  "homepage": "https://github.com/AllSmartObjects/smartobject-watchify#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "smartobject": "^1.4.1"
+  }
+}
