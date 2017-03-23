@@ -1,15 +1,15 @@
 var chai = require('chai'),
     expect = chai.expect,
     EventEmitter = require('events'),
-    SmartObject = require('smartobject');
-
-var WatchifiedSmartObject = require('../index.js')(SmartObject);
+    SmartObject = require('smartobject'),
+    watchify = require('../index.js');
 
 describe('Functional Check', function () {
-    var so = new WatchifiedSmartObject();
+    var so = new SmartObject();
+    so = watchify(so);
 
     it('should be inherited from SmartObject', function () {
-        expect(WatchifiedSmartObject.prototype instanceof SmartObject).to.be.equal(true);
+        expect(so instanceof SmartObject).to.be.equal(true);
     });
 
     it('should be composition of a EventEmitter', function () {

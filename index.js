@@ -1,16 +1,12 @@
 var util = require('util'),
     EventEmitter = require('events');
 
-module.exports = function (SmartObjectClass) {
+module.exports = function watchify(so) {
+    Object.defineProperty(so, '_emitter', { writable: true, enumerable: false, configurable: false, value: new EventEmitter() });
+    Object.defineProperty(so, '_originalWrite', { writable: true, enumerable: false, configurable: true, value: so.write });
+    Object.defineProperty(so, '_emit', { writable: true, enumerable: false, configurable: false, value: so._emitter.emit });
 
-    function WatchifiedSmartObject () {
-        this._emitter = new EventEmitter();
-
-        SmartObjectClass.apply(this, arguments);
-
-        SmartObjectClass.prototype._originalWrite = SmartObjectClass.prototype.write;
-
-        SmartObjectClass.prototype.write = function (oid, iid, rid, value, opt, callback) {
+    so.write = function (oid, iid, rid, value, opt, callback) {
             var self = this;
 
             if (typeof opt === 'function') {
@@ -27,18 +23,13 @@ module.exports = function (SmartObjectClass) {
                     callback(err, currentValue);
                 });
             });
-        };
-
-        Object.defineProperty(this, '_emit', { writable: true, enumerable: false, configurable: false, value: this._emitter.emit });
-
-        this.onChange = this._emitter.on;
-        this.onChangeOnce = this._emitter.once;
-
-        this.removeListener = this._emitter.removeListener;
-        this.removeAllListeners = this._emitter.removeAllListeners;
     };
 
-    util.inherits(WatchifiedSmartObject, SmartObjectClass);
+    so.onChange = so._emitter.on;
+    so.onChangeOnce = so._emitter.once;
 
-    return WatchifiedSmartObject;
+    so.removeListener = so._emitter.removeListener;
+    so.removeAllListeners = so._emitter.removeAllListeners;
+
+    return so;
 };

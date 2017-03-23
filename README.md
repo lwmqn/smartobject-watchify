@@ -1,6 +1,6 @@
 smartobject-watchify
 ========================
-An extension to make the SmartObject class listenable to resource changes  
+An extension to make a smartobject instance listenable to its resource changes  
   
 [![NPM](https://nodei.co/npm/smartobject-watchify.png?downloads=true)](https://nodei.co/npm/smartobject-watchify/)  
 
@@ -13,7 +13,7 @@ An extension to make the SmartObject class listenable to resource changes
 
 ## 1. Overview
 
-This module is used make the SmartObject class able to listen to its resource changes, which could be helpful for creating a machine node responsive to any reosurce change.  
+This module is used make a smartobject instance able to listen to its resource changes, which could be helpful for creating a machine node responsive to any reosurce change within it.  
 
 <br />
 
@@ -27,10 +27,10 @@ This module is used make the SmartObject class able to listen to its resource ch
 
 ```js
 var SmartObject = require('smartobject'),
-    WatchifiedSmartObject = require('smartobject-watchify')(SmartObject);
+    soWatchify = require('smartobject-watchify');
 
-// WatchifiedSmartObject is the extended SmartObject class, now use it to create your so.
-var so = new WatchifiedSmartObject();
+var so = new SmartObject();
+so = soWatchify(so);
 
 so.init('temperature', 0, { sensorValue: 31, units : 'C' });
 
@@ -58,30 +58,30 @@ so.write('temperature', 0, 'sensorValue', 80, function (err, data) {
 <a name="API_extend"></a>
 <br />
 *************************************************
-### require('smartobject-watchify')(SmartObject)
-`smartobject-watchify` exports a function that receives the SmartObject class as the parameter to be extended and returned.  
+### require('smartobject-watchify')(so)
+`smartobject-watchify` exports a function that receives the smartobject instance as the parameter to be extended and returned.  
 
 **Arguments:**  
 
-1. `SmartObject` (_Constructor_): The SmartObject class.  
+1. `so` (_Object_): The instance of SmartObject class.  
   
 **Returns:**  
 
-* (_Constructor_) WatchifiedSmartObject
+* (_Object_) Watchified smartobject.
 
 **Examples:**  
   
 ```js
-var SmartObject = require('smartobject');
+var SmartObject = require('smartobject'),
+    soWatchify = require('smartobject-watchify');
 
-// the extended class from SmartObject
-var WatchifiedSmartObject = require('smartobject-watchify')(SmartObject);
+var so = soWatchify(new SmartObject());
 ```
 
 <a name="API_onChange"></a>
 <br />
 *************************************************
-### .onChange(path, listener)
+### so.onChange(path, listener)
 Attach a listener to observe a given resource for its change.  
 
 **Arguments:**  
@@ -105,7 +105,7 @@ so.onChange('temperature/3/sensorValue', function (cVal, pVal) {
 <a name="API_onChangeOnce"></a>
 <br />
 *************************************************
-### .onChangeOnce(path, listener)
+### so.onChangeOnce(path, listener)
 Attach an one-time listener to observe a given resource for its change.  
 
 **Arguments:**  
@@ -128,7 +128,7 @@ so.onChangeOnce('presence/7/dInState', function (cVal, pVal) {
 <a name="API_removeListener"></a>
 <br />
 *************************************************
-### .removeListener(path, listener)
+### so.removeListener(path, listener)
 Remove a specified listener from listening to the given resource path.  
 
 **Arguments:**  
@@ -157,7 +157,7 @@ so.removeListener('presence/7/dInState', presenceListener);
 <a name="API_removeAllListeners"></a>
 <br />
 *************************************************
-### .removeAllListeners(path)
+### so.removeAllListeners(path)
 Remove all listeners from listening to the given resource path.  
 
 **Arguments:**  
