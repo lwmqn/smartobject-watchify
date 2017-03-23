@@ -18,7 +18,8 @@ module.exports = function watchify(so) {
                 self._originalWrite(oid, iid, rid, value, opt, function (err, currentValue) {
                     if (!err && (currentValue !== undefined)) {
                         if (currentValue !== oldValue) {
-                            self._emit(oid + '/' + iid + '/', { rid: rid, cVal: currentValue, pVal: oldValue });
+                            var iPath = oid + '/' + iid + '/';
+                            self._emit(iPath, { iPath: iPath, rid: rid, cVal: currentValue, pVal: oldValue });
                             self._emit(oid + '/' + iid + '/' + rid, currentValue, oldValue);
                         }
                     }
