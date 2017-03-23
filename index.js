@@ -17,8 +17,10 @@ module.exports = function watchify(so) {
             this.read(oid, iid, rid, function (er, oldValue) {
                 self._originalWrite(oid, iid, rid, value, opt, function (err, currentValue) {
                     if (!err && (currentValue !== undefined)) {
-                        if (currentValue !== oldValue)
+                        if (currentValue !== oldValue) {
+                            self._emit(oid + '/' + iid + '/', { rid: rid, cVal: currentValue, pVal: oldValue });
                             self._emit(oid + '/' + iid + '/' + rid, currentValue, oldValue);
+                        }
                     }
                     callback(err, currentValue);
                 });

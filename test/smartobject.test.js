@@ -71,8 +71,8 @@ describe('Functional Check', function () {
     });
 
     it('should report change of temperature/1/sensorValue correctly', function (done) {
-        so.onChange('temperature/1/sensorValue', function (cVal, oVal) {
-            if (cVal === 80 && oVal === 75)
+        so.onChange('temperature/1/sensorValue', function (cVal, pVal) {
+            if (cVal === 80 && pVal === 75)
                 done();
         });
         so.write('temperature', 1, 'sensorValue', 80, function (err, data) {
@@ -81,9 +81,21 @@ describe('Functional Check', function () {
         });
     });
 
+    it('should report change of temperature/1/ correctly', function (done) {
+        so.onChange('temperature/1/', function (rRec) {
+            if (rRec.rid === 'sensorValue' && rRec.cVal === 30 && rRec.pVal === 80)
+                done();
+        });
+        so.write('temperature', 1, 'sensorValue', 30, function (err, data) {
+            // console.log(err);
+            // console.log(data);
+        });
+    });
+
     it('should report change of temperature/0/sensorValue correctly', function (done) {
-        so.onChange('temperature/0/sensorValue', function (cVal, oVal) {
-            if (cVal === 12 && oVal === 31)
+        so.onChange('temperature/0/sensorValue', function (cVal, pVal) {
+
+            if (cVal === 12 && pVal === 31)
                 done();
         });
         so.write('temperature', 0, 'sensorValue', 12, function (err, data) {
@@ -93,8 +105,8 @@ describe('Functional Check', function () {
     });
 
     it('should report change of temperature/0/sensorValue correctly', function (done) {
-        so.onChange('temperature/0/sensorValue', function (cVal, oVal) {
-            if (cVal === 55 && oVal === 12)
+        so.onChange('temperature/0/sensorValue', function (cVal, pVal) {
+            if (cVal === 55 && pVal === 12)
                 done();
         });
         so.write('temperature', 0, 'sensorValue', 55, function (err, data) {
@@ -104,11 +116,23 @@ describe('Functional Check', function () {
     });
 
     it('should report change of 3303/18/sensorValue correctly', function (done) {
-        so.onChange('3303/18/sensorValue', function (cVal, oVal) {
-            if (cVal === 307 && oVal === 301)
+        so.onChange('3303/18/sensorValue', function (cVal, pVal) {
+            if (cVal === 307 && pVal === 301)
                 done();
         });
         so.write('3303', 18, 'sensorValue', 307, function (err, data) {
+            // console.log(err);
+            // console.log(data);
+        });
+    });
+
+
+    it('should report change of 3303/18/ correctly', function (done) {
+        so.onChange('3303/18/', function (rRec) {
+            if (rRec.rid === 'sensorValue' && rRec.cVal === 99 && rRec.pVal === 307)
+                done();
+        });
+        so.write('3303', 18, 'sensorValue', 99, function (err, data) {
             // console.log(err);
             // console.log(data);
         });
