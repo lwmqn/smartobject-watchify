@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "make test-all"
+    "test": "nyc mocha -u bdd --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
-    "smartobject": "^1.4.1"
+    "nyc": "^14.1.1",
+    "smartobject": "^1.5.0"
   }
 }
