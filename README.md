@@ -8,6 +8,7 @@ An extension to make a smartobject instance listenable to its resource changes
 [![npm](https://img.shields.io/npm/v/smartobject-watchify.svg?maxAge=2592000)](https://www.npmjs.com/package/smartobject-watchify)
 [![PyPI](https://img.shields.io/pypi/status/Django.svg?maxAge=2592000)](https://www.npmjs.com/package/smartobject-watchify)
 [![npm](https://img.shields.io/npm/l/smartobject-watchify.svg?maxAge=2592000)](https://www.npmjs.com/package/smartobject-watchify) [![Greenkeeper badge](https://badges.greenkeeper.io/AllSmartObjects/smartobject-watchify.svg)](https://greenkeeper.io/)
+[![Coverage Status](https://coveralls.io/repos/github/AllSmartObjects/smartobject-watchify/badge.svg?branch=master)](https://coveralls.io/github/AllSmartObjects/smartobject-watchify?branch=master)
 
 <br />
 
