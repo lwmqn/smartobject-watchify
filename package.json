@@ -28,6 +28,6 @@
     "nyc": "^14.1.1",
     "smartobject": "^1.5.2",
     "snazzy": "^8.0.0",
-    "standard": "^13.0.1"
+    "standard": "^14.0.0"
   }
 }
