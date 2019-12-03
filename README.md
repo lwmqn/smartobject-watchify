@@ -4,11 +4,11 @@ An extension to make a smartobject instance listenable to its resource changes
 
 [![NPM](https://nodei.co/npm/smartobject-watchify.png?downloads=true)](https://nodei.co/npm/smartobject-watchify/)
 
-[![Travis branch](https://img.shields.io/travis/AllSmartObjects/smartobject-watchify/master.svg?maxAge=2592000)](https://travis-ci.org/AllSmartObjects/smartobject-watchify)
+[![Travis branch](https://img.shields.io/travis/lwmqn/smartobject-watchify/master.svg?maxAge=2592000)](https://travis-ci.org/lwmqn/smartobject-watchify)
 [![npm](https://img.shields.io/npm/v/smartobject-watchify.svg?maxAge=2592000)](https://www.npmjs.com/package/smartobject-watchify)
 [![PyPI](https://img.shields.io/pypi/status/Django.svg?maxAge=2592000)](https://www.npmjs.com/package/smartobject-watchify)
-[![npm](https://img.shields.io/npm/l/smartobject-watchify.svg?maxAge=2592000)](https://www.npmjs.com/package/smartobject-watchify) [![Greenkeeper badge](https://badges.greenkeeper.io/AllSmartObjects/smartobject-watchify.svg)](https://greenkeeper.io/)
-[![Coverage Status](https://coveralls.io/repos/github/AllSmartObjects/smartobject-watchify/badge.svg?branch=master)](https://coveralls.io/github/AllSmartObjects/smartobject-watchify?branch=master)
+[![npm](https://img.shields.io/npm/l/smartobject-watchify.svg?maxAge=2592000)](https://www.npmjs.com/package/smartobject-watchify) [![Greenkeeper badge](https://badges.greenkeeper.io/lwmqn/smartobject-watchify.svg)](https://greenkeeper.io/)
+[![Coverage Status](https://coveralls.io/repos/github/lwmqn/smartobject-watchify/badge.svg?branch=master)](https://coveralls.io/github/lwmqn/smartobject-watchify?branch=master)
 
 <br />
 
@@ -178,4 +178,4 @@ so.removeAllListeners('temperature/0/sensorValue');
 <br />
 ## License
 
-Licensed under [MIT](https://github.com/AllSmartObjects/smartobject-watchify/blob/master/LICENSE).
+Licensed under [MIT](https://github.com/lwmqn/smartobject-watchify/blob/master/LICENSE).

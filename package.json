@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AllSmartObjects/smartobject-watchify.git"
+    "url": "git+https://github.com/lwmqn/smartobject-watchify.git"
   },
   "author": "Simen Li",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AllSmartObjects/smartobject-watchify/issues"
+    "url": "https://github.com/lwmqn/smartobject-watchify/issues"
   },
-  "homepage": "https://github.com/AllSmartObjects/smartobject-watchify#readme",
+  "homepage": "https://github.com/lwmqn/smartobject-watchify#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "coveralls": "^3.0.6",
