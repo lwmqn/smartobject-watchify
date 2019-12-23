@@ -27,30 +27,29 @@ This module is used make a smartobject instance able to listen to its resource c
 ## 3. Basic Usage
 
 ```js
-var SmartObject = require('smartobject'),
-    soWatchify = require('smartobject-watchify');
+const SmartObject = require('@lwmqn/smartobject')
+const soWatchify = require('@lwmqn/smartobject-watchify')
 
-var so = new SmartObject();
-so = soWatchify(so);
+var so = new SmartObject()
+so = soWatchify(so)
 
-so.init('temperature', 0, { sensorValue: 31, units : 'C' });
+so.init('temperature', 0, { sensorValue: 31, units : 'C' })
 
 // attach a listener to receive the change from resource 'temperature/0/sensorValue'
 so.onChange('temperature/0/sensorValue', function (cVal, pVal) {
-    console.log('A listener to this resource');
-    console.log(cVal);  // current value
-    console.log(pVal);  // previous value
-});
+  console.log('A listener to this resource')
+  console.log(cVal) // current value
+  console.log(pVal) // previous value
+})
 
 so.onChange('temperature/0/sensorValue', function (cVal, pVal) {
-    console.log('Another listener to this resource');
-});
+  console.log('Another listener to this resource')
+})
 
 // Modify the sensorValue of the temperature sensor and the listener will be triggered
 so.write('temperature', 0, 'sensorValue', 80, function (err, data) {
-    if (err)
-        console.log(err);
-});
+  if (err) console.log(err)
+})
 ```
 
 <br />
@@ -73,10 +72,10 @@ so.write('temperature', 0, 'sensorValue', 80, function (err, data) {
 **Examples:**
 
 ```js
-var SmartObject = require('smartobject'),
-    soWatchify = require('smartobject-watchify');
+const SmartObject = require('@lwmqn/smartobject')
+const soWatchify = require('@lwmqn/smartobject-watchify')
 
-var so = soWatchify(new SmartObject());
+const so = soWatchify(new SmartObject())
 ```
 
 <a name="API_onChange"></a>
@@ -99,8 +98,8 @@ Attach a listener to observe a given resource for its change.
 
 ```js
 so.onChange('temperature/3/sensorValue', function (cVal, pVal) {
-    // Listen to 'temperature/3/sensorValue' for its change
-});
+  // Listen to 'temperature/3/sensorValue' for its change
+})
 ```
 
 <a name="API_onChangeOnce"></a>
@@ -122,8 +121,8 @@ Attach an one-time listener to observe a given resource for its change.
 
 ```js
 so.onChangeOnce('presence/7/dInState', function (cVal, pVal) {
-    // Listen to 'presence/7/dInState' only once for its change
-});
+  // Listen to 'presence/7/dInState' only once for its change
+})
 ```
 
 <a name="API_removeListener"></a>
@@ -145,14 +144,14 @@ Remove a specified listener from listening to the given resource path.
 
 ```js
 var presenceListener = function (cVal, pVal) {
-    // Listen to 'presence/7/dInState' only once for its change
-};
+  // Listen to 'presence/7/dInState' only once for its change
+}
 
 // attach listener
-so.onChange('presence/7/dInState', presenceListener);
+so.onChange('presence/7/dInState', presenceListener)
 
 // remove listener
-so.removeListener('presence/7/dInState', presenceListener);
+so.removeListener('presence/7/dInState', presenceListener)
 ```
 
 <a name="API_removeAllListeners"></a>
@@ -172,7 +171,7 @@ Remove all listeners from listening to the given resource path.
 **Examples:**
 
 ```js
-so.removeAllListeners('temperature/0/sensorValue');
+so.removeAllListeners('temperature/0/sensorValue')
 ```
 
 <br />

@@ -1,5 +1,5 @@
 {
-  "name": "smartobject-watchify",
+  "name": "@lwmqn/smartobject-watchify",
   "version": "0.8.2",
   "description": "",
   "main": "index.js",
@@ -20,14 +20,15 @@
   },
   "homepage": "https://github.com/lwmqn/smartobject-watchify#readme",
   "devDependencies": {
+    "@lwmqn/smartobject": "^1.6.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.6",
     "eslint": "^6.5.1",
     "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.1",
     "nyc": "^14.1.1",
-    "smartobject": "^1.5.3",
     "snazzy": "^8.0.0",
     "standard": "^14.3.1"
-  }
+  },
+  "dependencies": {}
 }
