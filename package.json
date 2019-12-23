@@ -1,6 +1,6 @@
 {
   "name": "@lwmqn/smartobject-watchify",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "An extension to make a Smart Object instance listenable to its resource changes",
   "main": "index.js",
   "scripts": {
